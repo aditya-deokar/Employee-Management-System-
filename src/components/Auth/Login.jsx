@@ -26,14 +26,14 @@ const Login = () => {
         <div className='w-40 h-40 rounded-full bg-emerald-950 blur-[80px] absolute top-2/3 left-2/3 -translate-x-1/2 -translate-y-1/2'></div>
 
 
-        <div className='bg-slate-950/65 rounded-2xl max-sm:w-full  w-1/2 h-1/2 flex items-center justify-center relative'>
+        <div className='bg-slate-950/65 shadow-md shadow-slate-900 rounded-3xl max-sm:w-full  w-1/2 h-1/2 flex items-center justify-center relative'>
 
             <form
             onSubmit={ (e)=>{
                 submitHandler(e);
             }
             }
-            className='w-full flex flex-col items-center justify-center gap-2 text-xl'>
+            className='w-full flex flex-col items-center justify-center gap-3 text-xl'>
 
 
 
@@ -47,7 +47,7 @@ const Login = () => {
                         }
                         value={email}
                         required 
-                        className='w-1/2 max-sm:w-2/3 border-2 border-emerald-800 outline-none bg-transparent px-4 py-2 rounded-2xl' 
+                        className='w-1/2 max-sm:w-2/3 border-2 placeholder-gray-600 border-emerald-800 outline-none bg-transparent px-4 py-2 rounded-2xl' 
                         placeholder='Enter your email' 
                  />
 
@@ -62,10 +62,17 @@ const Login = () => {
 
                         value={password}
                         required 
-                        className='w-1/2 max-sm:w-2/3 border-2 border-emerald-800 outline-none bg-transparent px-4 py-2 rounded-2xl'  placeholder='Enter password'
+                        className='w-1/2 max-sm:w-2/3 border-2 placeholder-gray-600 border-emerald-800 outline-none bg-transparent px-4 py-2 rounded-2xl'  placeholder='Enter password'
                 />
+
+                <div className='w-1/2 max-sm:w-2/3 flex justify-between text-sm max-sm:p-0 p-2'>
+                    <p >
+                        <input type="checkbox" className='accent-emerald-800  hover:accent-emerald-300' name="rembMe" id="rembme" /> Remember me
+                    </p>
+                    <p className='text-emerald-800 cursor-pointer hover:text-emerald-400 ease-in transition-all '>Forget Password?</p>
+                </div>
             
-                <button className='w-1/2 max-sm:w-2/3 mt-8 text-emerald-800 border-2 border-emerald-800  py-2 px-5 rounded-2xl hover:text-white hover:bg-emerald-800 transition-all ease-in-out'>
+                <button className='w-1/2 max-sm:w-2/3 mt-6 text-emerald-800 border-2 border-emerald-800  py-2 px-5 rounded-2xl hover:text-white hover:bg-emerald-800 transition-all ease-in-out'>
                     Login
                 </button>
             </form>
