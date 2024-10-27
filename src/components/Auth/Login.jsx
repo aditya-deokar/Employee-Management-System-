@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 
+
+
 const Login = () => {
 
 
@@ -26,8 +28,9 @@ const Login = () => {
         <div className='w-40 h-40 rounded-full bg-emerald-950 blur-[80px] absolute top-2/3 left-2/3 -translate-x-1/2 -translate-y-1/2'></div>
 
 
-        <div className='bg-slate-950/65 shadow-md shadow-slate-900 rounded-3xl max-sm:w-full  w-1/2 h-1/2 flex items-center justify-center relative'>
+        <div className='bg-slate-950/65 shadow-md shadow-slate-900 rounded-3xl max-sm:w-full  w-1/2 h-1/2 flex items-center justify-center relative overflow-hidden'>
 
+           
             <form
             onSubmit={ (e)=>{
                 submitHandler(e);
