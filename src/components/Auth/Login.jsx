@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 
 
-const Login = () => {
+const Login = ({handleLogin}) => {
 
 
    const [email ,setEmail] = useState("");
@@ -12,8 +12,9 @@ const Login = () => {
     const submitHandler = (e)=>{
         e.preventDefault();
 
-        console.log('Eamil', email);
-        console.log('pass', password);
+        handleLogin(email,password);
+        // console.log('Eamil', email);
+        // console.log('pass', password);
 
         setEmail("");
         setPassword("");
