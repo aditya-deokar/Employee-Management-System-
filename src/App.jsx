@@ -11,10 +11,13 @@ const App = () => {
 
 
   const Authdata=useContext(AuthContext);
-  console.log(Authdata.employees);
+  // console.log(Authdata.employees);
+  setLocalStorage();
+  
 
 
   const [user, setUser] = useState('');
+  const [loginUser, setLoginUser] = useState('');
 
   const handleLogin= (email , password)=>{
     
@@ -22,9 +25,14 @@ const App = () => {
     if(email=="admin@example.com" && password=="123")
     {
       setUser("admin");
-    }else if(Authdata && Authdata.employees.find((e)=>email ==e.email && e.password==password))
+    }else if(Authdata)
     {
+      let employee=Authdata.employees.find((e)=>email ==e.email && e.password==password)
+     if(employee){
       setUser("employee");
+      setLoginUser(employee);
+      console.log(employee)
+     }
     }else{
       alert("Invalide Details!");
     }
@@ -43,7 +51,7 @@ const App = () => {
 
         { !user ? <Login handleLogin={handleLogin} />:'' }
         { user=="admin" ? <AdminDashboard />:'' }
-        { user=="employee" ? <EmployeeDashboard />:''  }
+        { user=="employee" ? <EmployeeDashboard data={loginUser} />:''  }
           
   
     
