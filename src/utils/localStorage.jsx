@@ -154,15 +154,38 @@ const employees = [
 const admin = [
   {
     "id": 1,
+    "firstName": "Aditya",
     "email": "admin@example.com",
     "password": "123"
   }
 ];
 
 
+
+const employeesWithTaskCount = employees.map(employee => {
+  const taskCount = employee.tasks.reduce(
+    (counts, task) => {
+      if (task.active) counts.active++;
+      if (task.newTask) counts.newTask++;
+      if (task.completed) counts.completed++;
+      if (task.failed) counts.failed++;
+      return counts;
+    },
+    { active: 0, newTask: 0, completed: 0, failed: 0 }
+  );
+
+  return {
+    ...employee,
+    taskCount
+  };
+});
+
+// console.log(employeesWithTaskCount);
+
+
   
   export const setLocalStorage =()=>{
-    localStorage.setItem('employees', JSON.stringify(employees));
+    localStorage.setItem('employees', JSON.stringify(employeesWithTaskCount));
     localStorage.setItem("admin",JSON.stringify(admin))
   }
 
