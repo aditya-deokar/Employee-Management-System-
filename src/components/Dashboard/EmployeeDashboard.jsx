@@ -9,8 +9,8 @@ const EmployeeDashboard = ({data}) => {
 
         <Header data={data}/>
 
-        <EmployeeAchivement />
-        <EmployeeTasks/>
+        <EmployeeAchivement  data={data}/>
+        <EmployeeTasks data={data}/>
 
 
     <div className='absolute w-52 h-[100vh] blur-[160px] max-sm:rotate-12 rotate-45 bg-teal-600/85 z-0'></div>
