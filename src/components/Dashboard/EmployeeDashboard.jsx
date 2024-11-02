@@ -2,6 +2,8 @@ import React from 'react'
 import Header from '../others/Header'
 import EmployeeTasks from '../others/EmployeeTasks'
 import EmployeeAchivement from '../others/EmployeeAchivement'
+import NewTask from '../TaskList/ParticularTask'
+import ParticularTask from '../TaskList/ParticularTask'
 
 const EmployeeDashboard = ({data}) => {
   return (
@@ -10,8 +12,39 @@ const EmployeeDashboard = ({data}) => {
         <Header data={data}/>
 
         <EmployeeAchivement  data={data}/>
-        <EmployeeTasks data={data}/>
 
+        <div className='flex flex-col w-full justify-start'>
+          <h1 className='text-2xl mb-4'>New Tasks</h1>
+          {
+          data.tasks.map((elem,id)=>{
+                if(elem.newTask == true){
+                  return <ParticularTask data={[elem]} />
+                }
+
+          })
+        }
+        </div>
+
+
+
+        
+        <div className='flex flex-col gap-4 w-full justify-start'>
+            <h1 className='text-2xl mt-2'>Active Tasks</h1>
+            {
+              data.tasks.map((elem,idx)=>{
+                if(elem){
+                  return <ParticularTask data={[elem]}/>
+                }
+              })
+            }
+           
+            
+        </div>
+        
+        <div className='flex flex-col w-full justify-start'>
+            <h1 className='text-2xl mt-4 mb-2'>All Tasks</h1>
+            <EmployeeTasks data={data}/>
+        </div>
 
     <div className='absolute w-52 h-[100vh] blur-[160px] max-sm:rotate-12 rotate-45 bg-teal-600/85 z-0'></div>
     </section>
