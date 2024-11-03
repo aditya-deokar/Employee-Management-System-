@@ -2,7 +2,12 @@ import React from 'react'
 import Login from '../Auth/Login'
 
 const Header = ({data}) => {
-  console.log(data)
+  // console.log(data)
+
+  const logOutUser= ()=>{
+    window.location.reload();
+  }
+
   return (
     <div className='w-full flex justify-between items-end z-10'>
             <h1 className='text-2xl'>Hello, <br></br> 
@@ -11,7 +16,7 @@ const Header = ({data}) => {
             </h1>
 
 
-            <button className='px-3 py-2 bg-red-600 rounded-lg hover:bg-red-700'>Log Out</button>
+            <button onClick={logOutUser} className='px-3 py-2 bg-red-600 rounded-lg hover:bg-red-700'>Log Out</button>
     </div>
   )
 }

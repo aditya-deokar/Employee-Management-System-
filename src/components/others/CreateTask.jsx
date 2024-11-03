@@ -1,6 +1,12 @@
-import React from 'react'
+import { useContext } from "react";
+import  { AuthContext } from "../../context/AuthProvider"
 
 const CreateTask = () => {
+
+    const AuthData=useContext(AuthContext);
+    const Auth=AuthData.employees;
+    console.log(Auth);
+    
   return (
             <form className="flex flex-wrap max-sm:gap-3 max-sm:p-3 gap-6 max-sm:w-full w-1/2 p-10 text-xl">
                 <div className="w-full ">
@@ -18,7 +24,17 @@ const CreateTask = () => {
                 </div>
                 <div className="max-sm:w-full w-1/2 flex-1 flex flex-col ">
                     <label htmlFor="assign" className="text-xl">Assign To</label>
-                    <input type="text" id="assign" name="assign" className="w-full p-2 rounded-md bg-slate-800 outline-none" />
+                    <select className="w-full p-2 rounded-md bg-slate-800 outline-none" name="assign" id="assign">
+                        <option value="">select</option>
+                        {
+                            Auth.map((elem,id)=>{
+                                return(
+                                    <option key={id} value={elem.firstName}>{elem.firstName}</option>
+                                )
+                            })
+                        }
+                       
+                    </select>
                 </div>
                 <div className="max-sm:w-full w-full  flex flex-col ">
                     <label htmlFor="task-cate" className="text-xl">Category</label>
