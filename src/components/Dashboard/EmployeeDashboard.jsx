@@ -2,7 +2,6 @@ import React from 'react'
 import Header from '../others/Header'
 import EmployeeTasks from '../others/EmployeeTasks'
 import EmployeeAchivement from '../others/EmployeeAchivement'
-import NewTask from '../TaskList/ParticularTask'
 import ParticularTask from '../TaskList/ParticularTask'
 
 const EmployeeDashboard = ({data}) => {
@@ -18,7 +17,7 @@ const EmployeeDashboard = ({data}) => {
           {
           data.tasks.map((elem,id)=>{
                 if(elem.newTask == true){
-                  return <ParticularTask data={[elem]} />
+                  return <ParticularTask key={id} data={[elem]} />
                 }
 
           })
@@ -33,7 +32,7 @@ const EmployeeDashboard = ({data}) => {
             {
               data.tasks.map((elem,idx)=>{
                 if(elem){
-                  return <ParticularTask data={[elem]}/>
+                  return <ParticularTask key={idx} data={[elem]}/>
                 }
               })
             }

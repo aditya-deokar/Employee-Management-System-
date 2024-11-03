@@ -4,7 +4,9 @@ import AllTask from "../others/AllTask";
 import Header from "../others/Header";
 import CreateTask from "../others/CreateTask";
 
+
 const AdminDashboard = ({data}) => {
+
   return (
    <section className="w-full  min-h-screen max-sm:px-4 px-12 py-6 bg-slate-900 text-white flex flex-col justify-start gap-3 items-center">
          
@@ -21,10 +23,10 @@ const AdminDashboard = ({data}) => {
 
             <CreateTask/>
 
-            <div className="w-1/2 max-sm:w-full bg-slate-800 rounded-md h-[70vh] p-3">
+            <div className="w-1/2 max-sm:w-full overflow-auto bg-slate-800 rounded-md h-[70vh] max-sm:p-1 p-3">
                 <h1 className="text-3xl font-semibold p-1 border-b-2 border-slate-700">All Tasks</h1>
 
-                <AllTask />
+                <AllTask  />
             </div>
 
         </div>
