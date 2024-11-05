@@ -1,12 +1,14 @@
-import { useContext } from "react";
+import { useContext} from "react";
 import { AuthContext } from "../../context/AuthProvider";
 
 const AllTask = () => {
 
   
+
+  
   const Authdata=useContext(AuthContext);
   const EmpData= Authdata.employees;
-  console.log(EmpData)
+  // console.log(EmpData)
 
  
   return (
